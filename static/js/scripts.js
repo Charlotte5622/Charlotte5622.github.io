@@ -3,6 +3,43 @@ const config_file = 'config.yml'
 const section_names = ['home', 'awards', 'experience', 'publications'];
 let scrollSpyInstance = null;
 
+function lockSidebarCard() {
+    const sidebar = document.querySelector('.profile-sidebar');
+    const card = sidebar ? sidebar.querySelector('.profile-card') : null;
+
+    if (!sidebar || !card) {
+        return;
+    }
+
+    if (window.innerWidth <= 991) {
+        sidebar.classList.remove('sidebar-locked');
+        sidebar.style.removeProperty('--sidebar-lock-top');
+        sidebar.style.removeProperty('--sidebar-lock-left');
+        sidebar.style.removeProperty('--sidebar-lock-width');
+        sidebar.style.removeProperty('--profile-card-height');
+        return;
+    }
+
+    sidebar.classList.remove('sidebar-locked');
+
+    window.requestAnimationFrame(() => {
+        if (window.innerWidth <= 991) {
+            return;
+        }
+
+        const rect = card.getBoundingClientRect();
+        const cardHeight = card.offsetHeight;
+        const rootStyles = window.getComputedStyle(document.documentElement);
+        const sidebarOffset = Number.parseFloat(rootStyles.getPropertyValue('--sidebar-offset')) || 0;
+
+        sidebar.style.setProperty('--sidebar-lock-top', `${Math.max(rect.top, sidebarOffset)}px`);
+        sidebar.style.setProperty('--sidebar-lock-left', `${rect.left}px`);
+        sidebar.style.setProperty('--sidebar-lock-width', `${rect.width}px`);
+        sidebar.style.setProperty('--profile-card-height', `${cardHeight}px`);
+        sidebar.classList.add('sidebar-locked');
+    });
+}
+
 function bindConfigLinks(yml) {
     const optionalLinks = [
         ['sidebar-email-link', yml['sidebar-email-link']],
@@ -121,6 +158,7 @@ window.addEventListener('DOMContentLoaded', event => {
 
             })
             bindConfigLinks(yml);
+            lockSidebarCard();
         })
         .catch(error => console.error(error));
 
@@ -135,6 +173,7 @@ window.addEventListener('DOMContentLoaded', event => {
                 document.getElementById(name + '-md').innerHTML = html;
                 enhanceDetailsAnimations(document.getElementById(name + '-md'));
                 refreshScrollSpy();
+                lockSidebarCard();
             })
             .catch(error => console.error(error));
     })
@@ -145,5 +184,8 @@ window.addEventListener('DOMContentLoaded', event => {
         }
         refreshScrollSpy();
     });
+
+    window.addEventListener('load', lockSidebarCard);
+    window.addEventListener('resize', lockSidebarCard);
 
 }); 

@@ -1,4 +1,4 @@
-<details open>
+<details>
 <summary>Click to view research outputs</summary>
 <div class="details-body">
 

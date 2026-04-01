@@ -115,12 +115,15 @@ body {
 }
 
 .profile-sidebar {
-    position: sticky;
-    top: var(--sidebar-offset);
+    position: relative;
     margin-left: -0.4rem;
-    margin-top: -0.7rem;
+    margin-top: 0;
     align-self: start;
     z-index: 20;
+}
+
+.profile-sidebar.sidebar-locked {
+    min-height: var(--profile-card-height, auto);
 }
 
 .profile-card {
@@ -129,28 +132,14 @@ body {
     border-radius: 24px;
     padding: 1.6rem 1.35rem;
     box-shadow: var(--shadow-soft);
-    max-height: calc(100vh - var(--sidebar-offset) - 1rem);
-    overflow-y: auto;
-    overscroll-behavior: contain;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(22, 93, 255, 0.24) transparent;
 }
 
-.profile-card::-webkit-scrollbar {
-    width: 0.38rem;
-}
-
-.profile-card::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.profile-card::-webkit-scrollbar-thumb {
-    background: rgba(22, 93, 255, 0.18);
-    border-radius: 999px;
-}
-
-.profile-card::-webkit-scrollbar-thumb:hover {
-    background: rgba(22, 93, 255, 0.3);
+.profile-sidebar.sidebar-locked .profile-card {
+    position: fixed;
+    top: var(--sidebar-lock-top, var(--sidebar-offset));
+    left: var(--sidebar-lock-left, 1rem);
+    width: var(--sidebar-lock-width, 252px);
+    z-index: 30;
 }
 
 .profile-avatar {
@@ -794,14 +783,22 @@ body {
         margin-top: 0;
     }
 
+    .profile-sidebar.sidebar-locked {
+        min-height: auto;
+    }
+
     .profile-card {
         display: grid;
         grid-template-columns: 120px 1fr;
         gap: 1rem 1.15rem;
         align-items: start;
-        max-height: none;
-        overflow: visible;
-        scrollbar-width: auto;
+    }
+
+    .profile-sidebar.sidebar-locked .profile-card {
+        position: static;
+        top: auto;
+        left: auto;
+        width: auto;
     }
 
     .profile-avatar {
