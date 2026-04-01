@@ -159,8 +159,7 @@ body {
     min-width: 0;
 }
 
-.profile-link-icon,
-.profile-link-badge {
+.profile-link-icon {
     width: 1.7rem;
     height: 1.7rem;
     flex: 0 0 1.7rem;
@@ -179,6 +178,12 @@ body {
     font-size: 0.88rem;
 }
 
+.profile-link-icon svg {
+    width: 0.98rem;
+    height: 0.98rem;
+    display: block;
+}
+
 .profile-link-icon--location {
     color: var(--accent-color);
 }
@@ -191,33 +196,25 @@ body {
     color: #1f2937;
 }
 
-.profile-link-badge {
-    font-size: 0.64rem;
-    font-weight: 800;
-    letter-spacing: 0.02em;
-    line-height: 1;
-}
-
-.profile-link-badge--scholar {
+.profile-link-icon--scholar {
     color: #165DFF;
     background: linear-gradient(135deg, #eef4ff, #dce9ff);
     border-color: rgba(22, 93, 255, 0.14);
 }
 
-.profile-link-badge--orcid {
+.profile-link-icon--orcid {
     color: #1c9b63;
     background: linear-gradient(135deg, #eefcf5, #dff7ea);
     border-color: rgba(28, 155, 99, 0.14);
 }
 
-.profile-link-badge--rg {
+.profile-link-icon--rg {
     color: #177c89;
     background: linear-gradient(135deg, #eefbfc, #def4f6);
     border-color: rgba(23, 124, 137, 0.14);
 }
 
-.profile-links li:hover .profile-link-icon,
-.profile-links li:hover .profile-link-badge {
+.profile-links li:hover .profile-link-icon {
     transform: translateY(-1px);
     box-shadow: 0 12px 22px rgba(22, 93, 255, 0.08);
 }
@@ -636,11 +633,13 @@ body {
     margin-bottom: 0.8rem;
     font-weight: 700;
     font-size: 0.98rem;
+    align-items: center;
 }
 
 .publication-links a {
     color: var(--accent-color);
     text-decoration: underline;
+    text-decoration-thickness: 1.5px;
     text-underline-offset: 3px;
 }
 
@@ -665,11 +664,18 @@ body {
 }
 
 .main-body details.publication-abstract summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.26rem;
     padding: 0;
     font-size: 0.98rem;
     line-height: 1.4;
     color: var(--accent-color);
     background: transparent;
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 3px;
 }
 
 .main-body details.publication-abstract summary:hover {
@@ -680,7 +686,9 @@ body {
 .main-body details.publication-abstract summary::after {
     position: static;
     display: inline-block;
-    margin-left: 0.3rem;
+    margin-left: 0;
+    font-size: 0.86em;
+    line-height: 1;
     transform: rotate(0deg);
 }
 

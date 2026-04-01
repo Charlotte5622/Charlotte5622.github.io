@@ -1,5 +1,3 @@
-I am Tongrui Zhang, an undergraduate student at **Shandong University of Finance and Economics (SDUFE)**, supervised by Prof. Huiyu Li. My current research focuses on image degradation and restoration, with a particular emphasis on self-supervised learning for real-world image denoising.
-
-Starting from September 2026, I will join the direct Ph.D. program at **Huazhong University of Science and Technology (HUST)**, supervised by Prof. Bolong Zheng. My doctoral research will shift to spatiotemporal, temporal, and high-dimensional big data management and analysis, with a focus on developing efficient algorithms and systems for large-scale intelligent data analytics.
-
+I am Tongrui Zhang, an undergraduate student at **Shandong University of Finance and Economics (SDUFE)**, supervised by Prof. Huiyu Li. My current research focuses on image degradation and restoration, with a particular emphasis on self-supervised learning for real-world image denoising.  
+Starting from September 2026, I will join the direct Ph.D. program at **Huazhong University of Science and Technology (HUST)**, supervised by Prof. Bolong Zheng. My doctoral research will shift to spatiotemporal, temporal, and high-dimensional big data management and analysis, with a focus on developing efficient algorithms and systems for large-scale intelligent data analytics.  
 This homepage documents my academic journey, including undergraduate research outputs, and will be continuously updated with my Ph.D. stage progress and research achievements.
