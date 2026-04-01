@@ -4,7 +4,7 @@
 
 <div class="publication-item">
   <div class="publication-figure" data-badge="IEEE TMM">
-    <div class="publication-figure-inner">Paper Figure Placeholder<br>Embed the actual paper image here</div>
+    <!-- <div class="publication-figure-inner">Paper Figure Placeholder<br>Embed the actual paper image here</div> -->
       <img src="static/assets/img/research/论文1.png" alt="Patent cover for the Adaptive Region-aware Blind-Spot Network for Self-Supervised Real Image Denoising">
   </div>
   <div class="publication-content">
