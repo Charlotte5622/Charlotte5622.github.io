@@ -1,5 +1,3 @@
-My Ph.D.-stage information will be organized separately in the expandable section below.
-
 <details>
 <summary>Click to view Ph.D.-stage updates</summary>
 <div class="details-body">
