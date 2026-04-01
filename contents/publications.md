@@ -1,3 +1,3 @@
-- **Adaptive Region-aware Blind-Spot Network for Self-Supervised Real Image Denoising**. Accepted by **IEEE Transactions on Multimedia (TMM, CCF-A)**.
+- **Adaptive Region-aware Blind-Spot Network for Self-Supervised Real Image Denoising**. Accepted by **IEEE Transactions on Multimedia (TMM, CCF-A)**. This work was completed during my undergraduate stage.
 
-- This section will be continuously updated with my Ph.D.-stage publications and representative research outputs.
+- Ph.D.-stage publications will be added here in the future. Please stay tuned.

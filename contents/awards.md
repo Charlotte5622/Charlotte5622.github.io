@@ -1,19 +1,19 @@
-- 国家奖学金，2024。
+All honors and awards listed in this section were achieved during my undergraduate studies.
 
-- 特等奖学金，2023-2024 学年。
+<details>
+<summary>Click to view undergraduate honors and awards</summary>
+<div class="details-body">
 
-- 蓝桥杯程序设计大赛（Python 组、Java 组）国家一等奖（0.5%），2024。
+- National Scholarship, 2024.
+- Special Scholarship, Academic Year 2023-2024.
+- First Prize, Lanqiao Cup Programming Contest (Python Group and Java Group), 2024.
+- First Prize, National Competition of Digital Media Technology Works and Creativity for College Students, 2024.
+- Third Prize, Challenge Cup National Extracurricular Academic Works Competition for College Students, 2023.
+- Second Prize, APMCM Asia-Pacific Mathematical Contest in Modeling, 2024.
+- Second Prize, MathorCup Mathematical Application Challenge, 2024.
+- First Prize, Mati Cup National Programming Contest for College Students, 2024.
+- Second Prize, Chuanzhi Cup National Programming Contest for College Students, 2024.
+- Second Prize, China Robot and Artificial Intelligence Competition, 2023.
 
-- 全国大学生数字媒体科技作品及创意竞赛国家一等奖，2024。
-
-- 挑战杯全国大学生课外学术作品竞赛国家三等奖，2023。
-
-- APMCM 亚太地区大学生数学建模竞赛国家二等奖，2024。
-
-- MathorCup 大学生数学应用挑战赛国家二等奖，2024。
-
-- 码蹄杯全国大学生程序设计大赛国家一等奖，2024。
-
-- 传智杯全国大学生程序设计大赛国家二等奖，2024。
-
-- 中国机器人及人工智能大赛国家二等奖，2023。
+</div>
+</details>
