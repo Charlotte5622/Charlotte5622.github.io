@@ -36,12 +36,7 @@ No build step is required. The site can be deployed directly with GitHub Pages.
 |   |-- assets
 |   |   |-- favicon.ico
 |   |   |-- files
-|   |   |   `-- research
-|   |   |       `-- ara-bsn-invention-patent.pdf
 |   |   `-- img
-|   |       |-- photo.png
-|   |       `-- research
-|   |           `-- ara-bsn-invention-patent-cover.png
 |   |-- css
 |   |   |-- styles.css
 |   |   `-- main.css
