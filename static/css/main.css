@@ -414,7 +414,7 @@ body {
 .publication-item {
     display: grid;
     grid-template-columns: minmax(260px, 360px) minmax(0, 1fr);
-    gap: 1.75rem;
+    gap: 1.9rem;
     align-items: start;
     padding: 0.3rem 0 0.5rem;
 }
@@ -422,6 +422,7 @@ body {
 .publication-figure {
     position: relative;
     aspect-ratio: 16 / 10;
+    align-self: start;
     border-radius: 22px;
     border: 1px solid rgba(22, 93, 255, 0.12);
     background: linear-gradient(180deg, #ffffff 0%, #f5f8ff 100%);
@@ -440,6 +441,7 @@ body {
     display: block;
     border-radius: 16px;
     object-fit: contain;
+    object-position: left top;
     background: #fff;
 }
 
@@ -450,17 +452,21 @@ body {
 }
 
 .publication-figure::before {
-    content: "Real paper figure slot";
+    content: attr(data-badge);
     position: absolute;
     left: 1rem;
     top: 1rem;
-    padding: 0.18rem 0.6rem;
+    z-index: 2;
+    padding: 0.24rem 0.72rem;
     border-radius: 999px;
-    background: rgba(22, 93, 255, 0.1);
+    background: rgba(255, 255, 255, 0.92);
     color: var(--accent-color);
-    font-size: 0.76rem;
+    font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.01em;
+    border: 1px solid rgba(22, 93, 255, 0.12);
+    box-shadow: 0 6px 18px rgba(22, 93, 255, 0.12);
+    backdrop-filter: blur(8px);
 }
 
 .publication-figure-inner {
@@ -472,22 +478,31 @@ body {
         linear-gradient(135deg, rgba(22, 93, 255, 0.06), rgba(22, 93, 255, 0.02)),
         repeating-linear-gradient(0deg, transparent 0, transparent 24px, rgba(22, 93, 255, 0.03) 24px, rgba(22, 93, 255, 0.03) 25px);
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1.2rem;
-    text-align: center;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 3rem 1.2rem 1.2rem;
+    text-align: left;
     color: var(--accent-color);
     font-weight: 700;
+}
+
+.publication-content {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
 }
 
 .publication-title {
     font-size: 1.42rem;
     font-weight: 700;
-    line-height: 1.5;
-    margin-bottom: 0.45rem;
+    line-height: 1.48;
+    margin-bottom: 0.55rem;
 }
 
 .publication-title a {
+    display: inline-block;
     color: var(--accent-color);
     text-decoration: underline;
     text-decoration-thickness: 1.5px;
@@ -501,14 +516,14 @@ body {
 .publication-authors {
     color: var(--text-soft);
     font-size: 1rem;
-    margin-bottom: 0.55rem;
+    margin-bottom: 0.72rem;
 }
 
 .publication-meta {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem 1rem;
-    margin-bottom: 0.7rem;
+    gap: 0.55rem 0.75rem;
+    margin-bottom: 0.82rem;
     color: var(--text-soft);
     font-size: 0.95rem;
 }
@@ -521,13 +536,14 @@ body {
     border-radius: 999px;
     border: 1px solid rgba(22, 93, 255, 0.08);
     max-width: 100%;
+    line-height: 1.45;
 }
 
 .publication-links {
     display: flex;
     flex-wrap: wrap;
     gap: 0.7rem 1rem;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.9rem;
     font-weight: 700;
 }
 
@@ -548,6 +564,7 @@ body {
 
 .publication-notes li {
     margin-bottom: 0.45rem;
+    color: var(--text-soft);
 }
 
 @media screen and (max-width: 1100px) {
@@ -796,6 +813,10 @@ body {
     .publication-figure video,
     .publication-figure canvas {
         border-radius: 13px;
+    }
+
+    .publication-figure-inner {
+        padding: 2.7rem 1rem 1rem;
     }
 }
 
