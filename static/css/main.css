@@ -63,6 +63,16 @@ body {
     display: block;
 }
 
+.navbar-active-section {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 120px;
+}
+
 #mainNav .navbar-nav .nav-item .nav-link {
     position: relative;
     color: var(--text-main);

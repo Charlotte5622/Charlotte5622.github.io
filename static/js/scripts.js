@@ -99,6 +99,14 @@ function setActiveNavLink(hash) {
         const isActive = link.getAttribute('href') === hash;
         link.classList.toggle('active', isActive);
     });
+    updateMobileIndicator(hash);
+}
+
+function updateMobileIndicator(hash) {
+    const indicator = document.getElementById('mobileSectionIndicator');
+    if (!indicator) return;
+    const activeLink = document.querySelector(`#navbarResponsive .nav-link[href="${hash}"]`);
+    indicator.textContent = activeLink ? activeLink.textContent : '';
 }
 
 function enhanceDetailsAnimations(root = document) {
@@ -139,6 +147,14 @@ window.addEventListener('DOMContentLoaded', event => {
         scrollSpyInstance = new bootstrap.ScrollSpy(document.body, {
             target: '#mainNav',
             offset: 74,
+        });
+
+        // Update mobile indicator when ScrollSpy activates a section
+        document.body.addEventListener('activate.bs.scrollspy', (event) => {
+            const target = event.relatedTarget;
+            if (target) {
+                updateMobileIndicator('#' + target.id);
+            }
         });
     };
 
