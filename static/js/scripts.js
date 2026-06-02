@@ -1,7 +1,6 @@
 const content_dir = 'contents/'
 const config_file = 'config.yml'
 const section_names = ['home', 'awards', 'experience', 'publications'];
-let scrollSpyInstance = null;
 
 function parseCssLength(value, rootFontSize) {
     const normalized = `${value || ''}`.trim();
@@ -84,13 +83,7 @@ function bindConfigLinks(yml) {
 }
 
 function refreshScrollSpy() {
-    if (!scrollSpyInstance) {
-        return;
-    }
-
-    window.requestAnimationFrame(() => {
-        scrollSpyInstance.refresh();
-    });
+    // No-op: Using native IntersectionObserver which auto-refreshes
 }
 
 function setActiveNavLink(hash) {
@@ -141,22 +134,63 @@ function enhanceDetailsAnimations(root = document) {
 
 window.addEventListener('DOMContentLoaded', event => {
 
-    // Activate Bootstrap scrollspy on the main nav element
-    const mainNav = document.body.querySelector('#mainNav');
-    if (mainNav) {
-        scrollSpyInstance = new bootstrap.ScrollSpy(document.body, {
-            target: '#mainNav',
-            offset: 74,
-        });
+    // Custom scroll spy using native IntersectionObserver
+    // More reliable than Bootstrap ScrollSpy on mobile browsers
+    const navLinks = document.querySelectorAll('#navbarResponsive .nav-link');
+    const sections = [];
 
-        // Update mobile indicator when ScrollSpy activates a section
-        document.body.addEventListener('activate.bs.scrollspy', (event) => {
-            const target = event.relatedTarget;
-            if (target) {
-                updateMobileIndicator('#' + target.id);
+    navLinks.forEach(link => {
+        const hash = link.getAttribute('href');
+        if (hash && hash.startsWith('#')) {
+            const section = document.querySelector(hash);
+            if (section) {
+                sections.push({ id: hash, element: section, link: link });
+            }
+        }
+    });
+
+    let currentActive = null;
+
+    const observerCallback = (entries) => {
+        // Find the section that's most visible in the viewport
+        let maxRatio = 0;
+        let mostVisible = null;
+
+        entries.forEach(entry => {
+            if (entry.isIntersecting && entry.intersectionRatio > maxRatio) {
+                maxRatio = entry.intersectionRatio;
+                mostVisible = entry.target;
             }
         });
+
+        if (mostVisible && mostVisible.id !== currentActive) {
+            currentActive = mostVisible.id;
+            const hash = '#' + currentActive;
+
+            // Update nav links
+            navLinks.forEach(link => {
+                link.classList.toggle('active', link.getAttribute('href') === hash);
+            });
+
+            // Update mobile indicator
+            updateMobileIndicator(hash);
+        }
     };
+
+    const observer = new IntersectionObserver(observerCallback, {
+        root: null, // Use viewport
+        rootMargin: '-20% 0px -60% 0px', // Trigger when section is in the middle 20% of viewport
+        threshold: [0, 0.25, 0.5, 0.75, 1]
+    });
+
+    sections.forEach(({ element }) => observer.observe(element));
+
+    // Initialize with current hash or first section
+    if (window.location.hash && document.querySelector(window.location.hash)) {
+        setActiveNavLink(window.location.hash);
+    } else if (sections.length > 0) {
+        setActiveNavLink(sections[0].id);
+    }
 
     // Collapse responsive navbar when toggler is visible
     const navbarToggler = document.body.querySelector('.navbar-toggler');
