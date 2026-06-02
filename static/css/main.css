@@ -25,6 +25,7 @@ body {
     color: var(--text-main);
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
+    overflow-y: visible;
 }
 
 .header {
